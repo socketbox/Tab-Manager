@@ -57,7 +57,7 @@ function TabManager(){
 					for(var i = 0; i < tabs.length; i++){
 						t.push(tabs[i].Tab);
 					}
-					chrome.extension.sendRequest({action:"delete",tabs:t},function(){
+					chrome.extension.sendMessage({action:"delete",tabs:t},function(){
 						setTimeout(This.Restart,100);
 					});
 				}else{
@@ -75,7 +75,7 @@ function TabManager(){
 				for(var i = 0; i < tabs.length; i++){
 					t.push(tabs[i].Tab);
 				}							
-				chrome.extension.sendRequest({action:"new",tabs:t},function(){
+				chrome.extension.sendMessage({action:"new",tabs:t},function(){
 					This.Restart();
 				});
 			}

@@ -111,7 +111,7 @@ function Tab(t,w){
 			for(var i  = 0; i < tabs.length; i++){
 				t.push(tabs[i].Tab);
 			}
-			chrome.extension.sendRequest({action:"move",tabs:t,index:index,windowId:This.Window.ID},function(){
+			chrome.extension.sendMessage({action:"move",tabs:t,index:index,windowId:This.Window.ID},function(){
 				This.Window.TabManager.Restart();
 			});		
 		}else if(!e.shiftKey && !e.ctrlKey ){
