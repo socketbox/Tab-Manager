@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 			var count = 0;
 			for(var i = 0; i < tabs.length; i++){
 				(function(tab){
-					chrome.tabs.move(tab.id,{windowId:windowId,index:index},function(){
+					chrome.tabs.move(tab.id,{windowId:windowId,index:index},function(tab){
 						chrome.tabs.update(tab.id,{pinned:tab.pinned},function(){
 							count++;
 							if(count == tabs.length){
